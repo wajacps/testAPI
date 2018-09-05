@@ -23,9 +23,17 @@ function cbGetTest1 (req, res) {
 
   // Lets try SQL
   let theId = req.body.id;
-  if(isNaN(theId) == true) {
-    // Make sure it is a number
-    theId = 0;
+  switch(theId) {
+      case 1:
+        theId = 1;
+        break;
+
+      case 2:
+        theId = 2;
+        break;
+
+      default:
+        theId = 0;
   }
 
   let query = 'SELECT * FROM table1 WHERE id=' + theId;
