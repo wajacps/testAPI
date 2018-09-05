@@ -21,8 +21,9 @@ function cbGetTest1 (req, res) {
     console.log ("Nothing to show");
   }
 
-  console.log ("Lets show something");
-  console.log ("Attempt for 3rd test");
+  // Lets try SQL
+  let query = 'SELECT * FROM table1 WHERE id=' + req.body.id;
+
 
   res.send ({status: "OK"});
 }
