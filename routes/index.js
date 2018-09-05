@@ -7,39 +7,16 @@ router.get('/', function(req, res, next) {
 });
 
 // List of API
-router.get ('/test1', cbGetTest1);
+router.get ('/test2', cbGetTest2);
+
+function cbGetTest2 (req, res) {
+    // Example of SQL injection
+    let myId = req.body.id;
+    let myQuery = `SELECT * FROM table2 WHERE id = ${myId}`;
 
 
-// Implementation
-function cbGetTest1 (req, res) {
-  let a = 5;
-
-  if(a == 10) {
-    console.log (`a = ${a}`);
-  }
-  else {
-    console.log ("Nothing to show");
-  }
-
-  // Lets try SQL
-  let theId = req.body.id;
-  switch(theId) {
-      case 1:
-        theId = 1;
-        break;
-
-      case 2:
-        theId = 2;
-        break;
-
-      default:
-        theId = 0;
-  }
-
-  let query = 'SELECT * FROM table1 WHERE id=' + theId;
-
-
-  res.send ({status: "OK"});
+    // Example of redirect
+    res.redirect(req.body.url);
 }
 
 module.exports = router;
