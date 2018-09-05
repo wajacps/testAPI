@@ -22,12 +22,11 @@ function cbGetTest1 (req, res) {
   }
 
   // Lets try SQL
-  let theId;
-  if(isNaN(req.body.id) == false) {
+  let theId = req.body.id;
+  if(isNaN(theId) == true) {
     // Make sure it is a number
-    theId = req.body.id;
+    theId = 0;
   }
-  else theId = 0;
 
   let query = 'SELECT * FROM table1 WHERE id=' + theId;
 
