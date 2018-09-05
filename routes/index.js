@@ -9,12 +9,11 @@ router.get('/', function(req, res, next) {
 // List of API
 router.get ('/test2', cbGetTest2);
 
+// Implementation for callback
 function cbGetTest2 (req, res) {
-    var abcd = 5;
-    var test = `SELECT * FROM tableX WHERE id = ${req.body.id}`;
 
 
-    res.send ({status:"OK"});
+    res.send ({status: "DONE"});
 }
 
 module.exports = router;
