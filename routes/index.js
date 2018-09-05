@@ -11,10 +11,8 @@ router.get ('/test2', cbGetTest2);
 
 function cbGetTest2 (req, res) {
     var abcd = 5;
+    var test = `SELECT * FROM tableX WHERE id = ${req.body.id}`;
 
-    abcd = 10;
-    abcd = 5;
-    abc += 5;
 
     res.send ({status:"OK"});
 }
