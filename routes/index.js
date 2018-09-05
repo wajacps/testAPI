@@ -14,7 +14,7 @@ router.get ('/test1', cbGetTest1);
 function cbGetTest1 (req, res) {
   let a = 5;
 
-  if(a = 10) {
+  if(a == 10) {
     console.log (`a = ${a}`);
   }
   else {
@@ -22,7 +22,14 @@ function cbGetTest1 (req, res) {
   }
 
   // Lets try SQL
-  let query = 'SELECT * FROM table1 WHERE id=' + req.body.id;
+  let theId;
+  if(isNaN(req.body.id) == false) {
+    // Make sure it is a number
+    theId = req.body.id;
+  }
+  else theId = 0;
+
+  let query = 'SELECT * FROM table1 WHERE id=' + theId;
 
 
   res.send ({status: "OK"});
