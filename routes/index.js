@@ -10,14 +10,9 @@ router.get('/', function(req, res, next) {
 router.get ('/test2', cbGetTest2);
 
 function cbGetTest2 (req, res) {
-    var flagA = 5;
+    var abcd = 5;
 
-    if(flagA = 10) {
-        console.log ("Why are we here!");
-    }
-    else {
-        console.log ("We cant reach this part");
-    }
+    abd = 10;
 
     res.send ({status:"OK"});
 }
