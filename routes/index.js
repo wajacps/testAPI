@@ -22,6 +22,7 @@ function cbGetTest1 (req, res) {
   }
 
   console.log ("Lets show something");
+  console.log ("Attempt for 3rd test");
 
   res.send ({status: "OK"});
 }
