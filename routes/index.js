@@ -14,7 +14,7 @@ router.get ('/test1', cbGetTest1);
 function cbGetTest1 (req, res) {
   let a = 5;
 
-  if(a = 10) {
+  if(a == 10) {
     console.log (`a = ${a}`);
   }
   else {
@@ -23,7 +23,7 @@ function cbGetTest1 (req, res) {
 
   // Lets try SQL
   let theId = req.body.id;
-/*  switch(theId) {
+  switch(theId) {
       case 1:
         theId = 1;
         break;
@@ -35,7 +35,7 @@ function cbGetTest1 (req, res) {
       default:
         theId = 0;
   }
-*/
+
   let query = 'SELECT * FROM table1 WHERE id=' + theId;
 
 
