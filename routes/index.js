@@ -21,6 +21,8 @@ function cbGetTest1 (req, res) {
     console.log ("Nothing to show");
   }
 
+  console.log ("Lets show something");
+
   res.send ({status: "OK"});
 }
 
