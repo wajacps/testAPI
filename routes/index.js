@@ -10,13 +10,16 @@ router.get('/', function(req, res, next) {
 router.get ('/test2', cbGetTest2);
 
 function cbGetTest2 (req, res) {
-    // Example of SQL injection
-    let myId = req.body.id;
-    let myQuery = `SELECT * FROM table2 WHERE id = ${myId}`;
+    var flagA = 5;
 
+    if(flagA = 10) {
+        console.log ("Why are we here!");
+    }
+    else {
+        console.log ("We cant reach this part");
+    }
 
-    // Example of redirect
-    res.redirect(req.body.url);
+    res.send ({status:"OK"});
 }
 
 module.exports = router;
