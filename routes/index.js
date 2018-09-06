@@ -12,10 +12,24 @@ router.get ('/test2', cbGetTest2);
 // Implementation for callback
 function cbGetTest2 (req, res) {
 
-    var query = 'SELECT * table1 WHERE id = ${req.body.id}';
+    // Sanitize it using whitelist
+    var myId;
+    switch(req.body.id) {
+        case 1: myId = 1; break;
+        case 2: myId = 2; break;
+        default: myId = 0;
+    }
+    var query = 'SELECT * table1 WHERE id = ${myId}';
 
 //    res.send ({status: "DONE"});
-    res.redirect (req.body.url);
+    // Sanitize using whitelist
+    var myUrl;
+    switch(req.body.url) {
+        case 1: myUrl = "https://www.tm.com.my"; break;
+        case 2: myUrl = "https://www.tmrnd.com.my"; break;
+        default: myUrl = "www.google.com";
+    }
+    res.redirect (myUrl);
 }
 
 module.exports = router;
